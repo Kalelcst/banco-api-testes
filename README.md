@@ -1,3 +1,8 @@
+![CI](https://github.com/Kalelcst/banco-api-testes/actions/workflows/ci.yml/badge.svg)
+![Node.js](https://img.shields.io/badge/Node.js-18.x%20%7C%2020.x-green)
+![Jest](https://img.shields.io/badge/tested%20with-Jest-C21325)
+![Express](https://img.shields.io/badge/Express-4.x-black)
+
 # Banco API Testes
 
 Projeto de portfólio de **automação de testes de API** simulando um cenário bancário
