@@ -107,4 +107,18 @@ npm run test:coverage
 - Rejeição por destinatário inexistente
 - Rejeição por limite diário excedido
 
-> **Nota técnica:** os testes de
+> **Nota técnica:** os testes de transferência usam `jest.resetModules()` para
+> reiniciar o "banco de dados" em memória antes de cada teste. Isso evita que o
+> resultado de um teste dependa da ordem de execução ou do estado deixado por
+> outro teste — um problema comum (e sutil) em suítes de automação.
+
+## Evidência de execução
+
+![CI passando](./docs/ci-passando.png)
+
+## Próximos passos (evolução do projeto)
+
+- Adicionar autenticação de dois fatores (2FA) no login
+- Persistir dados em um banco real (ex: SQLite/PostgreSQL) via Docker
+- Adicionar testes de carga (ex: k6 ou Artillery)
+- Gerar relatório visual com Allure
