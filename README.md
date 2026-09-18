@@ -1,9 +1,9 @@
+# Banco API Testes
+
 ![CI](https://github.com/Kalelcst/banco-api-testes/actions/workflows/ci.yml/badge.svg)
 ![Node.js](https://img.shields.io/badge/Node.js-18.x%20%7C%2020.x-green)
 ![Jest](https://img.shields.io/badge/tested%20with-Jest-C21325)
 ![Express](https://img.shields.io/badge/Express-4.x-black)
-
-# Banco API Testes
 
 Projeto de portfólio de **automação de testes de API** simulando um cenário bancário
 fictício. O objetivo é demonstrar testes automatizados de autenticação, reset de senha
@@ -39,7 +39,7 @@ sem dependências externas.
 
 ## Estrutura do projeto
 
-```
+\`\`\`
 banco-api-testes/
 ├── src/
 │   ├── app.js              # Configuração da aplicação Express
@@ -57,11 +57,11 @@ banco-api-testes/
 ├── server.js                # Ponto de entrada para rodar a API localmente
 ├── package.json
 └── .github/workflows/ci.yml # Pipeline de CI
-```
+\`\`\`
 
 ## Como rodar
 
-```bash
+\`\`\`bash
 # instalar dependências
 npm install
 
@@ -73,7 +73,7 @@ npm test
 
 # rodar os testes com relatório de cobertura
 npm run test:coverage
-```
+\`\`\`
 
 ## Usuários de teste (seed)
 
@@ -107,14 +107,4 @@ npm run test:coverage
 - Rejeição por destinatário inexistente
 - Rejeição por limite diário excedido
 
-> **Nota técnica:** os testes de transferência usam `jest.resetModules()` para
-> reiniciar o "banco de dados" em memória antes de cada teste. Isso evita que o
-> resultado de um teste dependa da ordem de execução ou do estado deixado por
-> outro teste — um problema comum (e sutil) em suítes de automação.
-
-## Próximos passos (evolução do projeto)
-
-- Adicionar autenticação de dois fatores (2FA) no login
-- Persistir dados em um banco real (ex: SQLite/PostgreSQL) via Docker
-- Adicionar testes de carga (ex: k6 ou Artillery)
-- Gerar relatório visual com Allure
+> **Nota técnica:** os testes de
