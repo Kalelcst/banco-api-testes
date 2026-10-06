@@ -1,7 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-// Base de dados fictícia em memória — apenas para fins de teste/portfólio.
-// Senha original de todos os usuários de seed: "Senha@123"
+
 const senhaHash = bcrypt.hashSync('Senha@123', 8);
 
 const usuarios = [
@@ -27,7 +26,6 @@ const usuarios = [
   },
 ];
 
-// Armazena códigos de reset de senha temporários: { email: { codigo, expiraEm } }
 const codigosReset = {};
 
 function buscarPorEmail(email) {

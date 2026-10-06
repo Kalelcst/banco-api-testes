@@ -63,15 +63,12 @@ describe('POST /api/conta/transferir', () => {
   });
 
   test('deve rejeitar transferência que ultrapasse o limite diário', async () => {
-    // Aumentamos o saldo do usuário só para este teste, isolando a regra que
-    // queremos validar (limite diário) da regra de saldo insuficiente.
     const database = require('../src/database');
     const usuario = database.buscarPorEmail('cliente1@bancoteste.com');
     usuario.saldo = 5000;
 
     const token = await obterToken('cliente1@bancoteste.com', 'Senha@123');
 
-    // Consome quase todo o limite diário (limite = 2000)
     const primeiraTentativa = await request(app)
       .post('/api/conta/transferir')
       .set('Authorization', `Bearer ${token}`)

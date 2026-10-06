@@ -4,13 +4,12 @@ const { buscarPorEmail, codigosReset } = require('../database');
 
 const router = express.Router();
 
-const VALIDADE_CODIGO_MS = 5 * 60 * 1000; // 5 minutos
+const VALIDADE_CODIGO_MS = 5 * 60 * 1000; 
 
 function gerarCodigo() {
-  return Math.floor(100000 + Math.random() * 900000).toString(); // código de 6 dígitos
+  return Math.floor(100000 + Math.random() * 900000).toString(); 
 }
 
-// Etapa 1: solicitar o código de reset (simula envio por e-mail/SMS)
 router.post('/reset/solicitar', (req, res) => {
   const { email } = req.body;
 
@@ -20,7 +19,6 @@ router.post('/reset/solicitar', (req, res) => {
 
   const usuario = buscarPorEmail(email);
 
-  // Por segurança, não revelamos se o e-mail existe ou não na base.
   if (!usuario) {
     return res.status(200).json({
       mensagem: 'Se o e-mail existir, um código de verificação foi enviado.',
@@ -33,15 +31,13 @@ router.post('/reset/solicitar', (req, res) => {
     expiraEm: Date.now() + VALIDADE_CODIGO_MS,
   };
 
-  // Em produção isso seria enviado por e-mail/SMS. Aqui devolvemos no
-  // corpo da resposta só para viabilizar os testes automatizados.
   return res.status(200).json({
     mensagem: 'Se o e-mail existir, um código de verificação foi enviado.',
     codigoDebug: codigo,
   });
 });
 
-// Etapa 2: confirmar o código e definir a nova senha
+
 router.post('/reset/confirmar', (req, res) => {
   const { email, codigo, novaSenha } = req.body;
 
